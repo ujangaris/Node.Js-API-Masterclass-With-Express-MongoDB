@@ -1,5 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const logger = require('./middleware/logger')
 
 
 // Route file
@@ -13,6 +14,8 @@ dotenv.config({
 
 
 const app = express();
+
+app.use(logger);
 
 //Mount routers
 app.use('/api/v1/bootcamps', bootcamps)
